@@ -25,3 +25,5 @@ reg delete “HKEY_CLASSES_ROOT\WOW6432Node\CLSID\{C8B655BB-28A0-4BB6-BDE1-D0826
 ```
 
 3. Запускаем инсталляцию CSPSetup, выбирая “Исправить”. Перезагружать ничего не нужно!
+	1. https://cryptopro.ru/products/csp?csp=download
+4. 
