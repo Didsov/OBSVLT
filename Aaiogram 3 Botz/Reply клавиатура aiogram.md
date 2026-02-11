@@ -7,8 +7,8 @@ from aiogram.utils.keyboard import ReplyKeyboardBuilder
 
 
 ### Создание
-Для начала нужно объявить экземляр класса ReplyKeyboardBuilder
-После этого с помощью метода add добавить в него кноки KeyboardButton
+Для начала нужно объявить экземпляр класса ReplyKeyboardBuilder
+После этого с помощью метода add добавить в него кнопки KeyboardButton
 Что бы указать сколько кнопок в ряду нужно применить метод adjust
 Для вывода клавиатуры в переменную reply_markup применить метод as_markup()
 
