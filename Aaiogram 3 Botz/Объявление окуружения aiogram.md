@@ -10,56 +10,30 @@
 	` .venv\Scripts\activate`
 3. Нужно установить библиотеки через pip, пока мы в venv
 4. Запускать тоже надо из окружения
-5. 
+
+### Переменные окружения
+Для безопасного хранения констант нужно их хранить в переменных среды
+
 #### Библиотеки
-```
-import asyncio
-from aiogram import Bot, Dispatcher, types
-from aiogram.filters.command import Command
-from api_token import TOKEN
-```
-
-- api_token - файл apy_token.py, созданный вручную и хранящий переменную токен
+Для начала нам понадобится библиотека ` python-dotenv`
 
 
-#### Объявление переменных
 ```
-bot = Bot(TOKEN)
-dp = Dispatcher()
+pip install python-dotenv
 ```
 
-
-#### Запуск и настройка
-- **dp.start_polling(bot)** - старт опроса бота. По сути непрерывный цикл 
-- **bot.delete_webhook(drop_pending_update = True)** - отключение обработки кучи команд, которые были вызваны до запуска бота. То есть запрещает выполнять команды, которые были отправлены боту до его запуска
-- 
-
-#### Нулевой  стартовый шаблон
-``` python
-import asyncio
-from aiogram import Bot, Dispatcher, types
-from aiogram.filters.command import Command
-from api_token import TOKEN
+#### Установить значение переменных
+В файле проекта нужно создать файл `.env`, внутрь который мы уже будет класть переменные
 
 
-bot = Bot(TOKEN)
-dp = Dispatcher()
-
-
-@dp.message(Command('start'))
-async def start_command(message: types.Message):
-    await message.answer('Старт 2218')
-
-
+#### Использование переменных
+1. Нам нужно импортировать load_dotenv из dotenv в проект и применить ее в main
+```python
+from dotenv import load_dotenv
 async def main():
-	await bot.delete_webhook(drop_pending_updates=True)
-    await dp.start_polling(bot)
-
-
-if __name__ == '__main__':
-    asyncio.run(main())
-
-
-
+    load_dotenv()
 ```
-
+2. Затем нам нужно достать переменную из окружения:
+```python
+token = os.getenv('TG_TOKEN')
+```
